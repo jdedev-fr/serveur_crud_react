@@ -6,5 +6,6 @@ export const sequelize = new Sequelize({
 });
 
 export const SECRET_TOKEN = "kawabounga"
+export const BASE_SERVER = "http://127.0.0.1:3000"
 
 sequelize.sync()

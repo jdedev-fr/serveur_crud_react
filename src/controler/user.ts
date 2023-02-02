@@ -13,6 +13,8 @@ export class CUser {
     }
     static getById = async (request: TypedRequestBody<{}, { id: number }>, response: TypedResponse<User>, next: NextFunction) => {
         const user = await User.findByPk(request.params.id)
+        //  console.log("blabla", user);
+
         try {
             if (user) response.json(user)
             else throw new ExpressError(410, "Utilisateur non trouvé")
@@ -22,7 +24,6 @@ export class CUser {
     }
     static add = async (request: TypedRequestBody<User, {}>, response: TypedResponse<User>, next: NextFunction) => {
         try {
-            (request.body);
 
             const newUser = await User.create(request.body)
             response.json(newUser)
