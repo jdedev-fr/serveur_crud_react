@@ -76,38 +76,8 @@ export const projectRouter = express.Router();
  *                          type: array
  *                          items:
  *                              $ref: '#/components/schemas/Project'
- *      security:
- *          - api_key: []
  */
-projectRouter.get('/', checkToken as any, CProject.getAll)
-/**
- * @swagger
- * /projects/{id}:
- *  get:
- *      summary: Get the project by id
- *      tags: [Projects]
- *      parameters:
- *          - in: path
- *            name: id
- *            schema:
- *                type: string
- *            required: true
- *            description: The project id
- *      responses:
- *          200:
- *              description: The project description by id
- *              content:
- *                  application/json:
- *                      schema:
- *                          $ref: '#/components/schemas/Project'
- *          410:
- *              description: The project was not found
- *          401:
- *              description: Authorization needed
- *      security:
- *          - api_key: []
- */
-projectRouter.get('/:id', checkToken as any, CProject.getById as any)
+projectRouter.get('/', CProject.getAll)
 
 /**
  * @swagger
@@ -135,40 +105,6 @@ projectRouter.get('/:id', checkToken as any, CProject.getById as any)
  */
 projectRouter.post('/', checkToken as any, upload.single('image'), CProject.add as any)
 
-/**
- * @swagger
- * /projects/{id}:
- *  put:
- *      summary: Modify a project by id
- *      tags: [Projects]
- *      parameters:
- *          - in: path
- *            name: id
- *            schema:
- *                type: string
- *            required: true
- *            description: The user id
- *      requestBody:
- *          required: true
- *          content:
- *              application/json:
- *                  schema:
- *                      $ref: '#/components/schemas/ProjectSend'
- *      responses:
- *          200:
- *              description: The project modified
- *              content:
- *                  application/json:
- *                      schema:
- *                          $ref: '#/components/schemas/Project'
- *          410:
- *              description: The project was not found
- *          401:
- *              description: Authorization needed
- *      security:
- *          - api_key: []
- */
-projectRouter.put('/:id', checkToken as any, upload.single('image'), CProject.update as any)
 
 /**
  * @swagger

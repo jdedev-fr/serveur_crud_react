@@ -84,6 +84,10 @@ Pour lancer l'application :
 npm start
 ```
 
+Pour se connecter :
+email : admin@test.com
+mdp : test
+
 Url de base du serveur : http://localhost:3000/
 Url de la documentation de l'api : http://localhost:3000/api-docs/
 
